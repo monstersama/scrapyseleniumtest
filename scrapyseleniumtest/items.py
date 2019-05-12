@@ -8,7 +8,13 @@
 import scrapy
 
 
-class ScrapyseleniumtestItem(scrapy.Item):
+class ProductItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    collection = 'products'  # MongoDB的Collection名称
+    image = scrapy.Field()
+    price = scrapy.Field()
+    deal = scrapy.Field()
+    title = scrapy.Field()
+    shop = scrapy.Field()
+    location = scrapy.Field()
