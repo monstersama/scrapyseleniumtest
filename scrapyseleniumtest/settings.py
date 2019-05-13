@@ -18,6 +18,8 @@ NEWSPIDER_MODULE = 'scrapyseleniumtest.spiders'
 KEYWORDS = ['ipad']
 MAX_PAGE = 5
 
+SELENIUM_TIMEOUT = 20
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scrapyseleniumtest (+http://www.yourdomain.com)'
 
@@ -55,9 +57,10 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'scrapyseleniumtest.middlewares.ScrapyseleniumtestDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   'scrapyseleniumtest.middlewares.SeleniumMiddlerware': 543,
+}
+
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -67,9 +70,12 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'scrapyseleniumtest.pipelines.ScrapyseleniumtestPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'scrapyseleniumtest.pipelines.MongoPipeline': 300,
+}
+
+MONGO_DB = 'taobao'
+MONGO_URL = 'localhost'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
