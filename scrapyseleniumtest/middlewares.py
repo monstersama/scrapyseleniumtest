@@ -15,8 +15,8 @@ from scrapy.http import HtmlResponse
 from logging import getLogger
 
 
-class SeleniumMiddlerware():
-    def __init__(self, timeout=None):
+class SeleniumMiddleware():
+    def __init__(self, timeout=None, service_args=[]):
         self.logger = getLogger(__name__)
         self.timeout = timeout
         self.browser = webdriver.Chrome()

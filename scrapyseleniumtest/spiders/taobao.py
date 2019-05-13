@@ -27,7 +27,7 @@ class TaobaoSpider(scrapy.Spider):
             item['price'] = ''.join(product.xpath('.//div[contains(@class, "price")]//text()').extract()).strip()
             item['title'] = ''.join(product.xpath('.//div[contains(@class, "title")]//text()').extract()).strip()
             item['shop'] = ''.join(product.xpath('.//div[contains(@class, "shop")]//text()').extract()).strip()
-            item['image'] = ''.join(product.xpath('.//div[contains(@class, "pic")]//img[contains(@class, "img"]/@data-src').extract()).strip()
+            item['image'] = ''.join(product.xpath('.//div[@class, "pic"]//img[contains(@class, "img"]/@data-src').extract()).strip()
             item['deal'] = product.xpath('.//div[contains(@class, "deal-cnt")]//text()').extract_first()
             item['location'] = product.xpath('.//div[contains(@class, "location")]//text()').extract_first()
             yield item
